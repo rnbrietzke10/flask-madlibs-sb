@@ -2,9 +2,10 @@
 content %}
 <h1>Madlibs</h1>
 <form action="/story" id="words-form">
-  <input type="text" placeholder="your name" name="username" />
-  <label for="compliments">Do you want compliments?</label>
-  <input id="compliments" type="checkbox" name="wants_compliments" />
+  {% for word in words%}
+  <label for="{{word}}">{{word| capitalize}}</label>
+  <input id="{{word}}" type="text" name="{{word}}" />
+  {% endfor %}
   <button>Submit!</button>
 </form>
 {% endblock %}
